@@ -19,14 +19,23 @@ class QuotesSpider(scrapy.Spider):
                 "text": text, "author": author, "tags": tags
             }
             yield(info)
-        next_page = response.css('li.next a::attr(href)').get()
 
+        '''
+        anchors = response.css('li.next a')
+        yield from response.follow_all(anchors, callback = self.parse)
+        '''
+        '''
+        for href in response.css('li.next a::attr(href)'):
+            yield response.follow(href, callback = self.parse)
+        '''
+        '''
+        next_page = response.css('li.next a::attr(href)').get()
         if next_page is not None:
-            '''
             next_page = response.urljoin(next_page)
             yield scrapy.Request(next_page, callback = self.parse)
-            '''
-            yield response.follow(next_page, callback = self.parse)
+            
+            # yield response.follow(next_page, callback = self.parse)
+        '''
 
 
 
