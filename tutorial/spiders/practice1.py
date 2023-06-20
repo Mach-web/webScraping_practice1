@@ -1,3 +1,5 @@
+'''scrapy crawl practice1 -O practice1.csv
+'''
 # import necessary library
 import scrapy
 

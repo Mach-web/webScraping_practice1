@@ -1,3 +1,4 @@
+'''scrapy crawl author_info -O author.csv'''
 import scrapy
 
 class authorScrapy(scrapy.Spider):

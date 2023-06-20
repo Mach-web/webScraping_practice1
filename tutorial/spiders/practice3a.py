@@ -1,5 +1,5 @@
 '''
-scrapy crawl tagScraping -O quotes-humor.csv -a tag=love
+scrapy crawl tagScraping -O quotes-love.csv -a tag=love
 '''
 import scrapy
 
@@ -12,6 +12,9 @@ class tagSpider(scrapy.Spider):
         '''Concat url with tag attribute'''
         if tag is not None:
             url = url + tag
+        else:
+            url = url + 'love'
+
         yield scrapy.Request(url, self.parse)
     '''Create a dictionary of quotes in the given tag'''
     def parse(self, response):
