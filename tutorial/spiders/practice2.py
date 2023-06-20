@@ -1,3 +1,7 @@
+'''
+This implementation is in Scrapy documentation.
+My simpler implementation is in practice2a.py.
+'''
 import scrapy
 class AuthorSpider(scrapy.Spider):
     name = 'author'
